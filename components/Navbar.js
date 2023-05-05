@@ -3,19 +3,21 @@ import Link from 'next/link'
 const Navbar = () => {
   const links = [
     { to: '/', page: 'Home' },
-    { to: '/about', page: 'About' },
-    { to: '/contact', page: 'Contact' },
-    { to: '/other', page: 'Other' },
+    { to: '/main-menu', page: 'Main Menu' },
+    { to: '/set-menus', page: 'set menus' },
+    { to: '/drinks', page: 'drinks' },
+    { to: '/locate-us', page: 'locate us' },
+    { to: '/contact-us', page: 'contact us' },
   ]
 
   return (
     <div>
       <nav>
-        <ul className="flex justify-end items-center ">
+        <ul className="flex flex-col justify-end items-center md:flex-row ">
           {links.map(link => (
-            <li key={link.to} className=" gap-3 p-3">
-              <Link className="hover:bg-slate-100 p-5" href={link.to}>
-                {link.page}
+            <li key={link.to} className="tracking-tighter ">
+              <Link className="hover:bg-slate-100 " href={link.to}>
+                {link.page.toUpperCase()}
               </Link>
             </li>
           ))}
