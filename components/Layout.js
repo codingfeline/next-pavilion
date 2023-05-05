@@ -1,10 +1,17 @@
-import React from 'react'
+import Footer from './Footer'
+import Navbar from './Navbar'
 
 const Layout = ({ children }) => {
   return (
-    <div>
-      <main>{children}</main>
-    </div>
+    <>
+      <div className="bg-purple-10">
+        <Navbar />
+        <div className="flex">
+          <main>{children}</main>
+        </div>
+        <Footer />
+      </div>
+    </>
   )
 }
 
