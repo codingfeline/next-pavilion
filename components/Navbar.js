@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(true)
-  const handleScroll = () => setHidden(true)
+  const toggleMenu = () => setHidden(!hidden)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    window.addEventListener('resize', handleScroll)
+    window.addEventListener('scroll', toggleMenu)
+    window.addEventListener('resize', toggleMenu)
   }, [])
 
   const links = [
@@ -23,12 +23,13 @@ const Navbar = () => {
     <>
       <nav className="z-50 flex flex-col">
         <div className="bg-slate-100">
-          <button onClick={() => setHidden(!hidden)}>toggle</button>
+          <button onClick={toggleMenu}>toggleMenu</button>
         </div>
         <ul
           className={`flex flex-col justify-around items-center md:flex-row z-40
           ${hidden && 'hidden'}
         `}
+          onClick={toggleMenu}
         >
           {links.map(link => (
             <li
