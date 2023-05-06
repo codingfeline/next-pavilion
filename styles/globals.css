@@ -17,12 +17,27 @@
 .pageBg {
   @apply bg-no-repeat bg-fixed bg-cover;
 }
-
+.menusBox h3 {
+  @apply bg-indigo-100 p-3 tracking-widest;
+}
+table.menus + h3 {
+  @apply my-6;
+}
+.menus tr {
+  @apply even:bg-slate-200 odd:bg-slate-100;
+}
+.menus .row_number {
+  @apply text-gray-400;
+}
 .menus td {
-  @apply p-2;
+  @apply p-2 align-top;
+}
+.menus th {
+  @apply text-left p-2;
 }
 .menus .price {
-  width: 70px;
+  width: 85px;
+  text-align: right;
 }
 .menus span {
   @apply text-red-600;
