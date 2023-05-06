@@ -1,6 +1,8 @@
 import Link from 'next/link'
+import { useState } from 'react'
 
 const Navbar = () => {
+  const [hidden, setHidden] = useState(true)
   const links = [
     { to: '/', page: 'Home' },
     { to: '/main-menu', page: 'Main Menu' },
@@ -12,8 +14,15 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-50">
-        <ul className="flex flex-col justify-around items-center md:flex-row z-40 ">
+      <nav className="z-50 flex flex-col">
+        <div className="bg-slate-100">
+          <button onClick={() => setHidden(!hidden)}>toggle</button>
+        </div>
+        <ul
+          className={`flex flex-col justify-around items-center md:flex-row z-40
+          ${hidden && 'hidden'}
+        `}
+        >
           {links.map(link => (
             <li
               key={link.to}
