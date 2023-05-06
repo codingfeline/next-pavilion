@@ -1,8 +1,15 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(true)
+  const handleScroll = () => setHidden(true)
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
+  }, [])
+
   const links = [
     { to: '/', page: 'Home' },
     { to: '/main-menu', page: 'Main Menu' },
