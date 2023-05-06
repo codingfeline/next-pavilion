@@ -3,7 +3,7 @@ import React from 'react'
 const ContactUs = () => {
   return (
     <>
-      <div>ContactUs</div>
+      <h4>ContactUs</h4>
       <form>
         <div>
           <label htmlFor="name">
@@ -22,6 +22,10 @@ const ContactUs = () => {
             Message
             <textarea id="message" cols="30" rows="10"></textarea>
           </label>
+        </div>
+        <div className="flex gap-4">
+          <button>Send</button>
+          <button>Clear</button>
         </div>
       </form>
     </>
