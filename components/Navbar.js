@@ -22,21 +22,21 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-10 flex flex-col">
-        <div className="bg-slate-100">
+      <nav className=" flex flex-col">
+        <div className="bg-slate-100 md:hidden z-40">
           <button onClick={toggleMenu}>toggleMenu</button>
         </div>
         <div
-          className={`duration-300 sm:static absolute bg-blue-100 sm:min-h-fit min-h-[100vh] left-0  sm:w-auto  w-full flex items-center justify-center sm:justify-end z-50 
-      ${!hidden ? 'top-[0%]' : 'top-[-100%]'}
+          className={`duration-200 md:static absolute bg-blue-100 md:min-h-fit min-h-[100vh] left-0  md:w-auto  w-full flex items-center justify-center  z-50 
+      ${!hidden ? 'top-[0%]' : 'top-[-110%]'}
       `}
           onClick={collapse}
         >
-          <ul className="flex flex-col justify-center items-center sm:flex-row sm:justify-around  bg-indigo-200 w-full h-full">
+          <ul className="flex flex-col justify-center items-center md:flex-row md:justify-around  bg-indigo-200 w-full h-full">
             {links.map(link => (
               <li key={link.to} className="nav-li">
                 <Link onClick={collapse} href={link.to} className="nav-a">
-                  {link.page}
+                  {link.page.toUpperCase()}
                 </Link>
               </li>
             ))}
