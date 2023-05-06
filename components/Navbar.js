@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react'
 const Navbar = () => {
   const [hidden, setHidden] = useState(true)
   const toggleMenu = () => setHidden(!hidden)
+  const collapse = () => setHidden(true)
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleMenu)
-    window.addEventListener('resize', toggleMenu)
+    window.addEventListener('scroll', collapse)
+    window.addEventListener('resize', collapse)
   }, [])
 
   const links = [
@@ -21,29 +22,26 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-50 flex flex-col">
+      <nav className="z-10 flex flex-col">
         <div className="bg-slate-100">
           <button onClick={toggleMenu}>toggleMenu</button>
         </div>
-        <ul
-          className={`flex flex-col justify-around items-center md:flex-row z-40
-          ${hidden && 'hidden'}
-        `}
-          onClick={toggleMenu}
+        <div
+          className={`duration-300 sm:static absolute bg-blue-100 sm:min-h-fit min-h-[100vh] left-0  sm:w-auto  w-full flex items-center justify-center sm:justify-end z-50 
+      ${!hidden ? 'top-[0%]' : 'top-[-100%]'}
+      `}
+          onClick={collapse}
         >
-          {links.map(link => (
-            <li
-              key={link.to}
-              className="tracking-wide md:tracking-tight sm:text-blue-30 transition-all
-              md:px-2 bg-slate-100 w-full text-center flex
-              "
-            >
-              <Link className="w-full hover:bg-slate-200 " href={link.to}>
-                {link.page.toUpperCase()}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className="flex flex-col justify-center items-center sm:flex-row sm:justify-around  bg-indigo-200 w-full h-full">
+            {links.map(link => (
+              <li key={link.to} className="nav-li">
+                <Link onClick={collapse} href={link.to} className="nav-a">
+                  {link.page}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </>
   )
