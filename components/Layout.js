@@ -7,22 +7,21 @@ const Layout = ({ children }) => {
   const path = useRouter().pathname
   return (
     <>
-      {/* {path} */}
       <div
-        className={`bg-purple-200 flex flex-col min-h-screen justify-between
-        ${path === '/' && 'bg_hom'}
+        className={`bg-purple-20 mb-auto flex flex-col min-h-screen justify-between pageBg
+        ${path === '/' && "bg-[url('/veg1.webp')] bg-bottom"}
+        ${path === '/main-menu' && "bg-[url('/dish-idea2.webp')] "}
+        ${path === '/set-menus' && "bg-[url('/veg1.webp')] "}
+        ${path === '/drinks' && "bg-[url('/wine3.webp')] "}
+        ${path === '/locate-us' && "bg-[url('/veg1.webp')] bg-left"}
+        ${path === '/contact-us' && "bg-[url('/veg1.webp')] bg-bottom"}
       `}
       >
         <Navbar />
-        <div className="flex flex-col mb-auto p-4">
+        <div className="flex flex-col mb-auto sm:p-4 z-30 md:w-11/12 lg:w-3/4 place-self-center">
           <main>{children}</main>
         </div>
-
-        {path === '/' && <Image src="/veg1.jpg" fill={true} style={imgCover} />}
-        {path === '/main-menu' && (
-          <Image src="/dish-idea2.jpg" fill={true} style={imgCover} />
-        )}
-
+        {/* <Image src="/wine3.jpg"  fill="true" /> */}
         <Footer />
       </div>
     </>
@@ -30,8 +29,3 @@ const Layout = ({ children }) => {
 }
 
 export default Layout
-
-const imgCover = {
-  objectFit: 'cover',
-  zIndex: 0,
-}
