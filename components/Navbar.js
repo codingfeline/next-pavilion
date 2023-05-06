@@ -11,24 +11,24 @@ const Navbar = () => {
   ]
 
   return (
-    <div>
-      <nav>
-        <ul className="flex flex-col justify-end items-center md:flex-row ">
+    <>
+      <nav className="z-50">
+        <ul className="flex flex-col justify-around items-center md:flex-row z-40 ">
           {links.map(link => (
             <li
               key={link.to}
               className="tracking-wide md:tracking-tight sm:text-blue-30 transition-all
-              md:px-2
+              md:px-2 bg-slate-100 w-full text-center flex
               "
             >
-              <Link className="hover:bg-slate-100 " href={link.to}>
+              <Link className="w-full hover:bg-slate-200 " href={link.to}>
                 {link.page.toUpperCase()}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-    </div>
+    </>
   )
 }
 
