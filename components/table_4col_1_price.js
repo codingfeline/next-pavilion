@@ -1,4 +1,5 @@
 import React from 'react'
+import parse from 'html-react-parser'
 
 const Table4col_1_price = ({ menus, title }) => {
   return (
@@ -18,7 +19,7 @@ const Table4col_1_price = ({ menus, title }) => {
             <tr key={menu.id}>
               <td>{menu.id}</td>
               <td>{menu.item}</td>
-              <td>{menu.description}</td>
+              <td>{parse(menu.description)}</td>
               <td className="price">&pound; {menu.price1.toFixed(2)}</td>
             </tr>
           ))}
