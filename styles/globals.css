@@ -18,6 +18,15 @@
   @apply bg-no-repeat bg-fixed bg-cover;
 }
 
+.menus td {
+  @apply p-2;
+}
+.menus .price {
+  width: 70px;
+}
+.menus span {
+  @apply text-red-600;
+}
 /*
 
 body {
