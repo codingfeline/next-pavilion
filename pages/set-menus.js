@@ -1,3 +1,6 @@
+import Table2_col from '@/components/table_2_col'
+import Table4col_1_price from '@/components/table_4col_1_price'
+import Table4col_1_price_per_person from '@/components/table_4col_1_price_per_person'
 import Table4col_2_price from '@/components/table_4col_2_price'
 
 const SetMenus = ({ menus }) => {
@@ -14,6 +17,14 @@ const SetMenus = ({ menus }) => {
         <Table4col_2_price
           menus={menus.filter(m => m.category === 'lunch_menus')}
           title="Lunch Menus"
+        />
+        <Table2_col
+          menus={menus.filter(m => m.category === 'choices')}
+          title="Please choose one of the following"
+        />
+        <Table4col_1_price_per_person
+          menus={menus.filter(m => m.category === 'set_menu')}
+          title="Set Menus"
         />
       </div>
     </>
