@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
 import Footer from './Footer'
 import Navbar from './Navbar'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const Layout = ({ children }) => {
-  const path = useRouter().pathname
+  const path = usePathname()
   return (
     <>
       <div
@@ -18,10 +18,28 @@ const Layout = ({ children }) => {
       `}
       >
         <Navbar />
-        <div className="flex flex-col mb-auto sm:p-4 z-30 md:w-11/12 lg:w-3/4 place-self-center">
-          <main>{children}</main>
+        <div className="flex flex-col mb-auto sm:p-4 z-30 md:w-11/12 lg:w-3/4 place-self-center grow justify-start">
+          <main className="flex grow justify-start">{children}</main>
         </div>
         {/* <Image src="/wine3.jpg"  fill="true" /> */}
+        <div className="commonImages transition py-2 flex gap-5 justify-center items-center w-full lg:gap-4 ">
+          <Image src="/dish01.jpg" width="180" height="150" alt="dish 1" />
+          <Image src="/dish02.jpg" width="180" height="150" alt="dish 1" />
+          <Image
+            src="/dish03.jpg"
+            width="180"
+            height="150"
+            className="hidden md:flex"
+            alt="dish 3"
+          />
+          <Image
+            src="/dish04.jpg"
+            width="180"
+            height="150"
+            className="hidden md:flex"
+            alt="dish 4"
+          />
+        </div>
         <Footer />
       </div>
     </>
