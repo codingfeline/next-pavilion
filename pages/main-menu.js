@@ -21,6 +21,7 @@ const MainMenu = ({ menus }) => {
       <div className=" menusBox">
         {items.map(item => (
           <Table4col_1_price
+            key={item.name}
             menus={menus.filter(m => m.category === item.name)}
             title={item.display}
           />
