@@ -52,5 +52,5 @@ h1 {
   @apply bg-blue-200 w-full block;
 }
 .nav-a {
-  @apply p-4 px-12 block  hover:bg-blue-300 text-center;
+  @apply p-4 px-2 block  text-center;
 }
