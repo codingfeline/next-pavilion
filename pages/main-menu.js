@@ -14,11 +14,11 @@ const MainMenu = ({ menus }) => {
     { name: 'salad', display: 'Salad' },
     { name: 'vegetables', display: 'Vegetables' },
     { name: 'rice', display: 'Rice' },
-    { name: 'noodles', display: 'Rice' },
+    { name: 'noodles', display: 'Noodles' },
   ]
   return (
     <>
-      <div className="bg-slate-100 menusBox">
+      <div className=" menusBox">
         {items.map(item => (
           <Table4col_1_price
             menus={menus.filter(m => m.category === item.name)}

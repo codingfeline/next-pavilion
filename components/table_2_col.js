@@ -1,6 +1,6 @@
 import parse from 'html-react-parser'
 
-const Table4col_1_price = ({ menus, title }) => {
+const Table2_col = ({ menus, title }) => {
   return (
     <>
       <h3>{title}</h3>
@@ -9,17 +9,13 @@ const Table4col_1_price = ({ menus, title }) => {
           <tr>
             <th></th>
             <th>Item</th>
-            <th>Description</th>
-            <th className="price">Price</th>
           </tr>
         </thead>
         <tbody>
           {menus.map(menu => (
             <tr key={menu.id}>
               <td className="row_number">{menu.id}</td>
-              <td>{menu.item}</td>
-              <td>{parse(menu.description)}</td>
-              <td className="price">&pound; {menu.price1.toFixed(2)}</td>
+              <td>{parse(menu.item)}</td>
             </tr>
           ))}
         </tbody>
@@ -28,4 +24,4 @@ const Table4col_1_price = ({ menus, title }) => {
   )
 }
 
-export default Table4col_1_price
+export default Table2_col
