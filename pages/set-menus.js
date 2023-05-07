@@ -20,7 +20,7 @@ const SetMenus = ({ menus }) => {
         />
         <Table2_col
           menus={menus.filter(m => m.category === 'choices')}
-          title="Please choose one of the following"
+          title="Choose one starter below for a 2-course lunch"
         />
         <Table4col_1_price_per_person
           menus={menus.filter(m => m.category === 'set_menu')}
