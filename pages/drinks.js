@@ -1,5 +1,6 @@
 import Table3_col from '@/components/table_3_col'
 import Table3col_1_price from '@/components/table_3col_1_price'
+import Head from 'next/head'
 
 const Drinks = ({ menus }) => {
   const items = [
@@ -14,19 +15,26 @@ const Drinks = ({ menus }) => {
     { name: 'water', display: 'Mineral Water' },
   ]
   return (
-    <div className="menusBox">
-      <Table3_col
-        menus={menus.filter(m => m.category === 'wine')}
-        title="Wines"
-      />
-      {items.map(item => (
-        <Table3col_1_price
-          key={item.name}
-          menus={menus.filter(m => m.category === item.name)}
-          title={item.display}
+    <>
+      <Head>
+        <title>Drinks</title>
+        <meta description="Bangkok Pavilion, drinks" />
+        <meta keywords="Thai food, drinks, wine" />
+      </Head>
+      <div className="menusBox">
+        <Table3_col
+          menus={menus.filter(m => m.category === 'wine')}
+          title="Wines"
         />
-      ))}
-    </div>
+        {items.map(item => (
+          <Table3col_1_price
+            key={item.name}
+            menus={menus.filter(m => m.category === item.name)}
+            title={item.display}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 
