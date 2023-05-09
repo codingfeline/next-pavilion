@@ -18,8 +18,9 @@ const Layout = ({ children }) => {
       `}
       >
         <Navbar />
-        <div className="flex flex-col mb-auto sm:p-4 z-30 md:w-11/12 lg:w-3/4 place-self-center grow justify-start">
-          <main className="flex grow justify-start">{children}</main>
+        {/* grow is required twice below for the child div to grow */}
+        <div className="flex flex-col mb-auto sm:p-4 z-30 md:w-11/12 lg:w-3/4 md:place-self-center grow ">
+          <main className="grid grow flex-col ">{children}</main>
         </div>
         {/* <Image src="/wine3.jpg"  fill="true" /> */}
         <div className="commonImages transition py-2 flex gap-5 justify-center items-center w-full lg:gap-4 ">
