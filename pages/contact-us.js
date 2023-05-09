@@ -9,9 +9,9 @@ const ContactUs = () => {
   const { register, handleSubmit, control, formState } = useForm()
   const { errors } = formState
 
-  const onSubmit = async data => {
+  const onSubmit = data => {
     console.log(data)
-    await axios
+    axios
       .post('https://bangkokpavilion.co.uk/mailer2_dev', data)
       .then(res => {
         console.log(res)
