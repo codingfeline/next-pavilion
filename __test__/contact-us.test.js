@@ -31,4 +31,11 @@ describe('Contact Us', () => {
     })
     expect(el).toBeInTheDocument()
   })
+  test('renders form button', () => {
+    render(<ContactUs />)
+    const el = screen.getByRole('button', {
+      name: 'Submit',
+    })
+    expect(el).toBeInTheDocument()
+  })
 })
