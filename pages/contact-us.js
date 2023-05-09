@@ -4,16 +4,15 @@ import { useForm } from 'react-hook-form'
 // import { DevTool } from '@hookform/devtools'
 
 const ContactUs = () => {
-  const [info, setInfo] = useState({})
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
   const { register, handleSubmit, control, formState } = useForm()
+  const { errors } = formState
 
-  const onSubmit = data => {
-    setInfo({ ...data, submitToOskars: true })
-    console.log(info)
-    axios
-      .post('https://bangkokpavilion.co.uk/mailer2_dev', info)
+  const onSubmit = async data => {
+    console.log(data)
+    await axios
+      .post('https://bangkokpavilion.co.uk/mailer2_dev', data)
       .then(res => {
         console.log(res)
         if (res.data === 'Success') setSubmitted(true)
@@ -21,8 +20,6 @@ const ContactUs = () => {
       })
       .catch(err => console.log(err))
   }
-
-  const { errors } = formState
 
   return (
     <div className="bg-slate-100 p-5 rounded-lg">
@@ -57,6 +54,12 @@ const ContactUs = () => {
                     message: 'invalid email format',
                   },
                 })}
+              />
+              <input
+                type="hidden"
+                id="submitToOskars"
+                value={1}
+                {...register('submitToOskars')}
               />
             </label>
           </div>
