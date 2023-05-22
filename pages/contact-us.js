@@ -12,7 +12,10 @@ const ContactUs = () => {
   const onSubmit = data => {
     console.log(data)
     axios
-      .post('https://bangkokpavilion.co.uk/mailer2_dev', data)
+      .post('https://bangkokpavilion.co.uk/mailer2_dev', {
+        ...data,
+        submitToOskars: true,
+      })
       .then(res => {
         console.log(res)
         if (res.data === 'Success') setSubmitted(true)
@@ -54,12 +57,6 @@ const ContactUs = () => {
                     message: 'invalid email format',
                   },
                 })}
-              />
-              <input
-                type="hidden"
-                id="submitToOskars"
-                value={1}
-                {...register('submitToOskars')}
               />
             </label>
           </div>
