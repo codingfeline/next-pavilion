@@ -1,1 +1,5 @@
 get https://bangkokpavilion.co.uk/api/all_menus?menu=main
+###
+get https://bangkokpavilion.co.uk/api/all_menus?menu=set_and_lunch
+###
+get https://bangkokpavilion.co.uk/api/all_menus?menu=drinks
