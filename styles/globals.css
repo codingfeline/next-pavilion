@@ -17,17 +17,20 @@
 .pageBg {
   @apply bg-no-repeat bg-fixed bg-cover;
 }
-.menusBox h3 {
-  @apply bg-indigo-100 p-3 tracking-widest;
+.menusBox {
+  @apply bg-slate-700;
 }
-table.menus + h3 {
-  @apply my-6;
+.menusBox h3 {
+  @apply bg-indigo-100 tracking-widest p-1;
+}
+.menus {
+  @apply w-full  my-1 mb-3;
 }
 .menus tr {
   @apply even:bg-slate-200 odd:bg-slate-100;
 }
 .menus .row_number {
-  @apply text-gray-400;
+  @apply text-gray-400 w-12 font-mono;
 }
 .menus td {
   @apply p-2 align-top;
@@ -36,12 +39,30 @@ table.menus + h3 {
   @apply text-left p-2;
 }
 .menus .price {
-  width: 85px;
-  text-align: right;
+  @apply text-right font-mono w-24;
+}
+.menus .price2 {
+  @apply text-right w-32 font-mono;
 }
 .menus span {
   @apply text-red-600;
 }
+.menus span.setMenu {
+  @apply block text-black uppercase font-bold;
+}
+.menus strong {
+  @apply block text-slate-600;
+}
+.menus .winePrices {
+  @apply text-black flex justify-between pt-2;
+}
+.menus .winePrices i {
+  @apply not-italic font-mono;
+}
+.commonImages img {
+  @apply rounded-full w-28 sm:w-36 md:w-40 lg:w-52 transition;
+}
+
 /*
 
 body {
