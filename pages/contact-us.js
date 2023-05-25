@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
-  const { register, handleSubmit, control, formState } = useForm()
+  const { register, handleSubmit, control, formState, reset } = useForm()
   const { errors } = formState
 
   const onSubmit = data => {
@@ -22,6 +22,11 @@ const ContactUs = () => {
         else setError('message not sent')
       })
       .catch(err => console.log(err))
+  }
+
+  const resetForm = e => {
+    e.preventDefault()
+    reset()
   }
 
   return (
@@ -74,7 +79,7 @@ const ContactUs = () => {
           </div>
           <div className="flex gap-4">
             <input type="submit" value="Submit" className="btn" />
-            <button>Clear</button>
+            <button onClick={resetForm}>Clear</button>
           </div>
         </form>
       )}
