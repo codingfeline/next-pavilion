@@ -48,7 +48,9 @@ const Antispam = ({ setPermission }) => {
         className={`flex justify-center items-center w-full h-screen absolute top-0 right-0  `}
       >
         <div
-          className={`bg-slate-200 p-4  w-full sm:w-3/4 transition-all delay-900 rounded-lg shadow-xl border-8 border-slate-300 flex flex-col justify-center items-center
+          className={`bg-slate-200 p-4  w-full sm:w-3/4 transition-all delay-1000 rounded-lg shadow-xl border-8 border-slate-300 flex flex-col justify-center items-center ${
+            check1 ? 'opacity-0' : 'opacity-100'
+          }
          `}
         >
           <h3 className="flex flex-col items-cente w-80 ">
