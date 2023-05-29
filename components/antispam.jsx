@@ -1,76 +1,77 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import { FaCheck, FaCross } from 'react-icons/fa'
 
 const Antispam = ({ setPermission }) => {
   const [no1, setNo1] = useState('')
-  const [no2, setNo2] = useState('')
   const [check1, setCheck1] = useState(false)
-  const [check2, setCheck2] = useState(false)
-
-  const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  const rand1 = () => setNo1(Math.floor(Math.random() * 10 + 1))
-  const rand2 = () => setNo2(Math.floor(Math.random() * 10 + 1))
+  const [arr1, setArr1] = useState([])
 
   const randomize = () => {
     rand1()
-    rand2()
   }
+
+  // to run upon wrong click
+  const randArray1 = () => setArr1(arr1.sort((a, b) => 0.5 - Math.random()))
 
   const compare1 = a => {
-    if (a === no1) setCheck1(true)
-    else setCheck1(false)
+    if (a === no1) {
+      setCheck1(true)
+      setTimeout(() => {
+        setPermission(true)
+      }, 1500)
+    } else {
+      rand1()
+      randArray1()
+    }
   }
-  const compare2 = val => {
-    if (val === no2 && check1) setCheck2(true)
-    setTimeout(() => {
-      setPermission(true)
-    }, 1500)
-  }
+  const rand1 = () => setNo1(Math.floor(Math.random() * 12 + 1))
 
   useEffect(() => {
+    setArr1(
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].sort(
+        (a, b) => 0.5 - Math.random()
+      )
+    )
+
     rand1()
-    rand2()
   }, [])
 
   return (
     <>
-      <h2>antispam</h2>
-      <div className={`bg-red-100 `}>
-        <h3>
-          <span className="inline-block w-1/6 bg-slate-400 m-1 p-1 text-center">
-            {no1}
-          </span>
-          {arr1.map(a => (
-            <span
-              className="bg-red-300 mx-1 p-1 cursor-pointer hover:bg-red-400"
-              onClick={() => compare1(a)}
-            >
-              {a}
-            </span>
-          ))}
-          {check1 ? (
-            <FaCheck className="text-green-500 inline-block ml-2" />
-          ) : (
-            ''
-          )}
-        </h3>
-        {check1 && (
-          <h3>
-            <span className="inline-block w-1/6 bg-slate-400 m-1 p-1 text-center">
-              {no2}
-            </span>
-            {arr2.map(a => (
-              <span
-                className="bg-red-300 mx-1 p-1 cursor-pointer hover:bg-red-400"
-                onClick={() => compare2(a)}
-              >
-                {a}
-              </span>
-            ))}
-            {check2 && <FaCheck className="text-green-500 inline-block ml-2" />}
+      <div
+        className={`flex items-center w-full h-screen absolute top-0 right-0  `}
+      >
+        <div
+          className={`bg-slate-200 p-4  w-full transition-all delay-900 rounded-lg shadow-xl border-8 border-slate-300 flex flex-col items-center
+         `}
+        >
+          <h3 className="flex flex-col items-cente w-80 ">
+            <div className="text-lg">
+              Click on <span className="val-a text-2xl">{no1}</span> below to
+              proceed
+            </div>
+            <div className="flex items-center">
+              <div className="choices">
+                {arr1.map(a => (
+                  <span
+                    key={a}
+                    className={`val-b 
+                ${a === no1 ? 'hover:bg-green-400' : 'hover:bg-red-500'}
+                `}
+                    onClick={() => compare1(a)}
+                  >
+                    {a}
+                  </span>
+                ))}
+              </div>
+              {check1 && (
+                <FaCheck className="text-green-500 inline-block ml-2 text-5xl" />
+              )}
+            </div>
           </h3>
-        )}
+        </div>
       </div>
       {/* <button onClick={randomize}>randomize</button> */}
     </>
