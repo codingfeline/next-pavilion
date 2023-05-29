@@ -1,11 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { FaCheck, FaCross } from 'react-icons/fa'
+import { MdClear, MdDone } from 'react-icons/md'
 
 const Antispam = ({ setPermission }) => {
   const [no1, setNo1] = useState('')
-  const [check1, setCheck1] = useState(false)
+  const [check1, setCheck1] = useState(null)
   const [arr1, setArr1] = useState([])
 
   const randomize = () => {
@@ -24,6 +24,10 @@ const Antispam = ({ setPermission }) => {
     } else {
       rand1()
       randArray1()
+      setCheck1(false)
+      setTimeout(() => {
+        setCheck1(null)
+      }, 700)
     }
   }
   const rand1 = () => setNo1(Math.floor(Math.random() * 12 + 1))
@@ -41,10 +45,10 @@ const Antispam = ({ setPermission }) => {
   return (
     <>
       <div
-        className={`flex items-center w-full h-screen absolute top-0 right-0  `}
+        className={`flex justify-center items-center w-full h-screen absolute top-0 right-0  `}
       >
         <div
-          className={`bg-slate-200 p-4  w-full transition-all delay-900 rounded-lg shadow-xl border-8 border-slate-300 flex flex-col items-center
+          className={`bg-slate-200 p-4  w-full sm:w-3/4 transition-all delay-900 rounded-lg shadow-xl border-8 border-slate-300 flex flex-col justify-center items-center
          `}
         >
           <h3 className="flex flex-col items-cente w-80 ">
@@ -66,9 +70,17 @@ const Antispam = ({ setPermission }) => {
                   </span>
                 ))}
               </div>
-              {check1 && (
-                <FaCheck className="text-green-500 inline-block ml-2 text-5xl" />
-              )}
+              <div className="border border-slate-300 p-2 rounded-lg">
+                <MdDone
+                  className={` text-5xl ${
+                    check1 ? 'text-green-500 ' : 'text-slate-300'
+                  }`}
+                />
+                <MdClear
+                  className={` text-5xl
+                ${check1 === false ? 'text-red-400' : 'text-slate-300'}`}
+                />
+              </div>
             </div>
           </h3>
         </div>
