@@ -37,7 +37,14 @@ const ContactUs = () => {
   return (
     <>
       <div className={`bg-slate-100 p-5 md:rounded-lg  `}>
-        <h4>ContactUs {!allowForm && <FaLock className="inline" />}</h4>
+        <h4>
+          ContactUs{' '}
+          <FaLock
+            className={`inline transition-all delay-700 ${
+              allowForm ? 'opacity-0 -translate-y-24' : 'opacity-100 '
+            }`}
+          />
+        </h4>
         {submitted ? (
           'submitted'
         ) : (
