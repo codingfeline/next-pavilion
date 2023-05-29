@@ -2,6 +2,7 @@ import Antispam from '@/components/antispam'
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { FaLock } from 'react-icons/fa'
 // import { DevTool } from '@hookform/devtools'
 
 const ContactUs = () => {
@@ -34,12 +35,19 @@ const ContactUs = () => {
   }
 
   return (
-    <div className="bg-slate-100 p-5 rounded-lg">
-      <h4>ContactUs</h4>
-      {submitted
-        ? 'submitted'
-        : allowForm && (
-            <form onSubmit={handleSubmit(onSubmit)}>
+    <>
+      <div className={`bg-slate-100 p-5 md:rounded-lg  `}>
+        <h4>ContactUs {!allowForm && <FaLock className="inline" />}</h4>
+        {submitted ? (
+          'submitted'
+        ) : (
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={`transition-opacity delay-700 ${
+              !allowForm ? 'opacity-40 text-slate-400' : 'opacity-100'
+            }`}
+          >
+            <fieldset disabled={!allowForm && 'disabled'}>
               <div>
                 <label htmlFor="name">
                   Name
@@ -83,15 +91,27 @@ const ContactUs = () => {
                   ></textarea>
                 </label>
               </div>
-              <div className="flex gap-4">
+              <div
+                className={`flex gap-4 transition-opacity delay-600
+            
+            `}
+              >
                 <input type="submit" value="Submit" className="btn" />
                 <button onClick={resetForm}>Clear</button>
               </div>
-            </form>
-          )}
-      {/* <DevTool control={control} /> */}
-      {!allowForm && <Antispam setPermission={setPermission} />}
-    </div>
+            </fieldset>
+          </form>
+        )}
+        {/* <DevTool control={control} /> */}
+        {!allowForm && (
+          <>
+            <div className="">
+              <Antispam setPermission={setPermission} />
+            </div>
+          </>
+        )}
+      </div>
+    </>
   )
 }
 
