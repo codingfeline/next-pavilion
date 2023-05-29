@@ -17,7 +17,7 @@ const Table4col_1_price_per_person = ({ menus, title }) => {
           {menus.map(menu => (
             <tr key={menu.id}>
               <td className="row_number">{menu.id}</td>
-              <td>{menu.item}</td>
+              <td className="item">{menu.item}</td>
               <td>{parse(menu.description)}</td>
               <td className="price2">
                 &pound; {menu.price1.toFixed(2)}
