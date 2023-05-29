@@ -26,15 +26,18 @@ const Navbar = () => {
   return (
     <>
       <nav className=" flex flex-col">
-        <div className="bg-slate-100 md:hidden z-40 flex justify-center">
+        <div className="bg-slate-100 md:hidden z-40 flex justify-center ">
           <FaBars
-            className="text-4xl m-1 text-slate-600 hover:cursor-pointer hover:text-slate-800 w-full"
+            className="text-5xl  bg-blue-200 text-slate-600 hover:cursor-pointer hover:text-slate-800 w-full border border-b-slate-400"
             onClick={toggleMenu}
           />
+          <span className=" text-center absolute right-2 top-2 uppercase">
+            {/* {pathname.replace('/', '').replace('-', ' ')} */}
+          </span>
         </div>
         <div
           className={`duration-200 md:static absolute bg-blue-100 md:min-h-fit min-h-[100vh] left-0  md:w-auto  w-full flex items-center justify-center  z-50 
-      ${!hidden ? 'top-[0%]' : 'top-[-110%]'}
+      ${!hidden ? 'top-[0%]' : 'top-[-120%]'}
       `}
           onClick={collapse}
         >
