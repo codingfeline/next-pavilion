@@ -21,11 +21,11 @@ const Table3_col = ({ menus, title }) => {
                 {parse(menu.description)}
                 <span className="winePrices">
                   {menu.price1 && menu.price2 && menu.price3 ? (
-                    <>
+                    <div className="flex flex-col md:flex-row">
                       <i>175ml: &pound; {menu.price1.toFixed(2)}</i>
                       <i>250ml: &pound; {menu.price2.toFixed(2)}</i>
                       <i>bottle: &pound; {menu.price3.toFixed(2)}</i>
-                    </>
+                    </div>
                   ) : (
                     ''
                   )}
