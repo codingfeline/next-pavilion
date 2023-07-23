@@ -1,8 +1,13 @@
-import React from 'react'
+import Head from 'next/head'
 
 const LocateUs = () => {
   return (
     <>
+      <Head>
+        <title>Locate us - Bangkok Pavilion | Thai Restaurant in Deal, Kent, UK</title>
+        <meta description="Location page of Bangkok Pavilion restaurant in Deal, Kent UK" />
+        <meta keywords="Thai food, Deal Kent UK, location, Bangkok Pavilion" />
+      </Head>
       <div className="flex p-4 w-full min-h-fit ">
         <iframe
           className="w-full rounded-lg"
