@@ -20,8 +20,8 @@ const Navbar = () => {
     { to: '/set-menus', page: 'set menus' },
     { to: '/drinks', page: 'drinks' },
     { to: '/locate-us', page: 'locate us' },
-    { to: '/contact-us', page: 'contact us' },
   ]
+  // { to: '/contact-us', page: 'contact us' },
 
   return (
     <>
@@ -50,11 +50,7 @@ const Navbar = () => {
                     onClick={collapse}
                     href={link.to}
                     className={`nav-a 
-                    ${
-                      isActive
-                        ? 'bg-slate-200 hover:bg-slate-100'
-                        : 'hover:bg-blue-300'
-                    }
+                    ${isActive ? 'bg-slate-200 hover:bg-slate-100' : 'hover:bg-blue-300'}
                   `}
                   >
                     {link.page.toUpperCase()}
