@@ -2,6 +2,7 @@ import Table2_col from '@/components/table_2_col'
 import Table4col_1_price from '@/components/table_4col_1_price'
 import Table4col_1_price_per_person from '@/components/table_4col_1_price_per_person'
 import Table4col_2_price from '@/components/table_4col_2_price'
+import Head from 'next/head'
 
 const SetMenus = ({ menus }) => {
   const items = [
@@ -13,6 +14,11 @@ const SetMenus = ({ menus }) => {
 
   return (
     <>
+      <Head>
+        <title>Set Menus - Bangkok Pavilion | Thai Restaurant in Deal, Kent, UK</title>
+        <meta description="Set Menus of Bangkok Pavilion restaurant in Deal, Kent UK" />
+        <meta keywords="Thai food, Deal Kent UK, Set Menus, Bangkok Pavilion" />
+      </Head>
       <div className="menusBox">
         <Table4col_2_price
           menus={menus.filter(m => m.category === 'lunch_menus')}
