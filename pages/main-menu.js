@@ -1,4 +1,5 @@
 import Table4col_1_price from '@/components/table_4col_1_price'
+import Head from 'next/head'
 
 const MainMenu = ({ menus }) => {
   const items = [
@@ -18,6 +19,11 @@ const MainMenu = ({ menus }) => {
   ]
   return (
     <>
+      <Head>
+        <title>Main Menu - Bangkok Pavilion | Thai Restaurant in Deal, Kent, UK</title>
+        <meta description="Main Menus of Bangkok Pavilion restaurant in Deal, Kent UK" />
+        <meta keywords="Thai food, Deal Kent UK, Main Menu, Bangkok Pavilion" />
+      </Head>
       <div className=" menusBox">
         {items.map(item => (
           <Table4col_1_price
@@ -34,9 +40,7 @@ const MainMenu = ({ menus }) => {
 export default MainMenu
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://bangkokpavilion.co.uk/api/all_menus?menu=main'
-  )
+  const res = await fetch('https://bangkokpavilion.co.uk/api/all_menus?menu=main')
   const menus = await res.json()
 
   return {
