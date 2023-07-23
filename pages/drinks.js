@@ -17,15 +17,12 @@ const Drinks = ({ menus }) => {
   return (
     <>
       <Head>
-        <title>Drinks</title>
-        <meta description="Bangkok Pavilion, drinks" />
-        <meta keywords="Thai food, drinks, wine" />
+        <title>Drinks - Bangkok Pavilion | Thai Restaurant in Deal, Kent, UK</title>
+        <meta description="Drinks Menus of Bangkok Pavilion restaurant in Deal, Kent UK" />
+        <meta keywords="Thai food, Deal Kent UK, drinks, wine" />
       </Head>
       <div className="menusBox">
-        <Table3_col
-          menus={menus.filter(m => m.category === 'wine')}
-          title="Wines"
-        />
+        <Table3_col menus={menus.filter(m => m.category === 'wine')} title="Wines" />
         {items.map(item => (
           <Table3col_1_price
             key={item.name}
@@ -41,9 +38,7 @@ const Drinks = ({ menus }) => {
 export default Drinks
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://bangkokpavilion.co.uk/api/all_menus?menu=drinks'
-  )
+  const res = await fetch('https://bangkokpavilion.co.uk/api/all_menus?menu=drinks')
   const menus = await res.json()
 
   return {
