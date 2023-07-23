@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
         ${path === '/' && "bg-[url('/veg1.webp')] bg-bottom"}
         ${path === '/main-menu' && "bg-[url('/dish-idea2.webp')] "}
         ${path === '/set-menus' && "bg-[url('/veg1.webp')] "}
-        ${path === '/drinks' && "bg-[url('/wine3.webp')] "}
+        ${path === '/drinks' && "bg-[url('/wine3.webp')] bg-left"}
         ${path === '/locate-us' && "bg-[url('/veg1.webp')] bg-left"}
         ${path === '/contact-us' && "bg-[url('/veg1.webp')] bg-bottom"}
       `}
